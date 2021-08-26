@@ -119,12 +119,12 @@ async function solve(page,res) {
 }
 
 
-async function run (url,res) {
+async function run (url,proxy,res) {
   puppeteer.use(pluginStealth())
 
   const browser1 = await puppeteer.launch({
     headless: true,
-    args: ['--window-size=360,500', '--window-position=000,000', '--no-sandbox', '--disable-dev-shm-usage', '--disable-web-security', '--disable-features=IsolateOrigins', ' --disable-site-isolation-trials']
+    args: ['--window-size=360,500', '--window-position=000,000', '--no-sandbox', '--disable-dev-shm-usage', '--disable-web-security', '--disable-features=IsolateOrigins', ' --disable-site-isolation-trials', `--proxy-server=socks5://${proxy}`]
   })
 
 
@@ -141,10 +141,9 @@ async function run (url,res) {
 }
 
 
-
 app.get('/bypass', function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
-	run(req.query.url,res)
+	run(req.query.url,req.query.proxy,res)
 })
 
 // POST method route
