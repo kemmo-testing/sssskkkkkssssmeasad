@@ -124,7 +124,7 @@ async function run (url,proxy,res) {
 
   const browser1 = await puppeteer.launch({
     headless: true,
-    args: ['--window-size=360,500', '--window-position=000,000', '--no-sandbox', '--disable-dev-shm-usage', '--disable-web-security', '--disable-features=IsolateOrigins', ' --disable-site-isolation-trials', `--proxy-server=socks5://${proxy}`]
+    args: ['--window-size=360,500', '--window-position=000,000', '--no-sandbox', '--disable-dev-shm-usage', '--disable-web-security', '--disable-features=IsolateOrigins', ' --disable-site-isolation-trials']
   })
 
 
