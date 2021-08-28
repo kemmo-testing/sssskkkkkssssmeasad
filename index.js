@@ -119,7 +119,7 @@ async function solve(page,res) {
 }
 
 
-async function run (url,proxy,res) {
+async function run (url,res) {
   puppeteer.use(pluginStealth())
 
   const browser1 = await puppeteer.launch({
