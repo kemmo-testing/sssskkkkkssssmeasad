@@ -143,7 +143,7 @@ async function run (url,proxy,res) {
 
 app.get('/bypass', function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
-	run(req.query.url,req.query.proxy,res)
+	run(req.query.url,res)
 })
 
 // POST method route
